@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login To NTBM </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login_form_container">
+    <form method="post" action="login.php">
+      <div class="login_form">
+        <h2>Login</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            name="uname"
+            placeholder="Student ID"
+            class="input_text"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        
+        <div class="input_group">
+          <i class="fa fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password(min. 6 characters)"
+            class="input_text"
+            autocomplete="off"
+            required
+            minlength="6"
+          />
+        </div>
+
+        
+
+        <div class="button_group" id="login_button">
+          <button type="submit" onclick="return validateForm()"><h5>Submit</h5></button>
+        </div>
+        
+        <div class="fotter">
+          <h3>Account?</h3>
+          <a href="register.html"><h3>Register</h3></a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="login.js"></script>
+
+  <script>
+    function validateForm() {
+      var studentID = document.getElementsByName("uname")[0].value;
+     
+      var password = document.getElementsByName("password")[0].value;
+     
+
+      if (studentID === "") {
+        alert("Student ID cannot be empty.");
+        return false;
+      }
+
+      if (!/^[0-9]+$/.test(studentID)) {
+        alert("Student ID should contain only numbers.");
+        return false;
+      }
+
+      
+
+      if (password.length < 6) {
+        alert("Password should be at least 6 characters long.");
+        return false;
+      }
+
+      
+
+      return true;
+    }
+  </script>
+</body>
+</html>
